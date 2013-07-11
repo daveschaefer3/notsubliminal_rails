@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "StaticPages" do
   describe "Home page" do
-    before { visit '/static_pages/home' }
+    before { visit root_path }
 
     it "should have the content 'Not Subliminal'" do
       expect(page).to have_content('Not Subliminal')
@@ -15,7 +15,7 @@ describe "StaticPages" do
   end # Home Page
 
   describe "About Page" do
-    before { visit '/static_pages/about' }
+    before { visit about_path }
 
     it "should have the content 'About'" do
       expect(page).to have_content('About')
@@ -27,7 +27,7 @@ describe "StaticPages" do
   end
 
   describe "Contact Page" do
-    before { visit '/static_pages/contact' }
+    before { visit contact_path }
 
     it "should have the content 'Contact'" do
       expect(page).to have_content('Contact')
