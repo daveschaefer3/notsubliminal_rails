@@ -22,9 +22,23 @@ describe User do
   	it { should_not be_valid }
   end
 
+  describe "when name is too long" do
+    before { @user.name = "a" * 51 }
+    it { should_not be_valid }
+  end
+
+  describe "when name is too short" do
+    before { @user.name = "foob" }
+    it { should_not be_valid }
+  end
+
   describe "when email is not present" do
   	before { @user.email = " " }
   	it { should_not be_valid }
+  end
+
+  describe "when email is not valid" do
+
   end
 
   describe "when password is not present" do
