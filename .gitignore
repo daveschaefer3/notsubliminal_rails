@@ -22,6 +22,7 @@ doc/
 .project
 .DS_Store
 .idea
+.todolist
 .rvmrc
 .ruby-*
 .secret
