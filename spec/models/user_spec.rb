@@ -92,6 +92,11 @@ describe User do
     
   end # password
 
+  describe "remember token" do
+    before { @user.save }
+    its(:remember_token) { should_not be_blank }
+  end
+
   describe "admin" do
 
   end # admin?
