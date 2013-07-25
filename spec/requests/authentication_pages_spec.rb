@@ -19,6 +19,11 @@ describe "AuthenticationPages" do
 
       it { should have_title('Sign In') }
       it { should have_selector('div.alert.alert-error', text: 'Invalid') }
+
+      describe "after visiting another page" do
+        before { click_link "Home" }
+        it { should_not have_selector('div.alert.alert-error') }
+      end
     end # with invalid info
 
     describe "with valid information" do
