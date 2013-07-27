@@ -61,16 +61,22 @@ describe "Authentication" do
           end
         end
       end
+      describe "in the Users controller" do
+        describe "visiting the edit page" do
+          before { visit edit_user_path(user) }
+          it { should have_title("Sign In") }
+        end
 
-      describe "visiting the edit page" do
-        before { visit edit_user_path(user) }
-        it { should have_title("Sign In") }
-      end
+        describe "submitting to the update action" do
+          before { patch user_path(user) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
 
-      describe "submitting to the update action" do
-        before { patch user_path(user) }
-        specify { expect(response).to redirect_to(signin_path) }
-      end
+        describe "visiting the user index" do
+          before { visit users_path }
+          it { should have_title('Sign In') }
+        end
+      end # in the Users controller
     end #for non-signed-in users
 
     describe "as wrong user" do

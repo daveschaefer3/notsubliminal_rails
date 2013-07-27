@@ -3,6 +3,18 @@ require 'spec_helper'
 describe "UserPages" do
   subject { page }
 
+  describe "index" do
+    before do
+      sign_in FactoryGirl.create(:user)
+      FactoryGirl.create(:user, name: "Bob", email: "bob@example.com")
+      FactoryGirl.create(:user, name: "Ben", email: "ben@example.com")
+      visit users_path
+    end
+
+    it { should have_title("All Users") }
+    it 
+  end # index
+
   describe "signup page" do
     before { visit signup_path }
 

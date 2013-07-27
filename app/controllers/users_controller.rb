@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:edit, :update]
+  before_action :signed_in_user, only: [:edit, :update, :index]
   before_action :correct_user,   only: [:edit, :update]
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def index
   end
 
   def new
