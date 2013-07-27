@@ -29,7 +29,7 @@ describe User do
     end
 
     describe "when name is too short" do
-      before { @user.name = "foob" }
+      before { @user.name = "fo" }
       it { should_not be_valid }
     end
   end # name

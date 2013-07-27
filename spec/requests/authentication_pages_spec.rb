@@ -31,6 +31,7 @@ describe "Authentication" do
       before { sign_in user }
 
       it { should have_title(user.name) }
+      it { should have_link('Users',       href: users_path) }
       it { should have_link('Profile',     href: user_path(user)) }
       it { should have_link('Settings',    href: edit_user_path(user)) }
       it { should have_link('Sign Out',    href: signout_path) }
@@ -60,7 +61,8 @@ describe "Authentication" do
             expect(page).to have_title('Edit Profile')
           end
         end
-      end
+      end # visiting a protected page
+
       describe "in the Users controller" do
         describe "visiting the edit page" do
           before { visit edit_user_path(user) }
@@ -77,6 +79,7 @@ describe "Authentication" do
           it { should have_title('Sign In') }
         end
       end # in the Users controller
+
     end #for non-signed-in users
 
     describe "as wrong user" do
@@ -93,6 +96,6 @@ describe "Authentication" do
         before { patch user_path(wrong_user) }
         specify { expect(response).to redirect_to(root_path) }
       end
-    end
+    end # as a wrong user
   end # authorization
 end

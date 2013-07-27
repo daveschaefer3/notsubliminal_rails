@@ -12,7 +12,13 @@ describe "UserPages" do
     end
 
     it { should have_title("All Users") }
-    it 
+    it { should have_content("All Users") }
+
+    it "should list each user" do
+      User.all.each do |user|
+        expect(page).to have_selector('li', text:user.name)
+      end
+    end
   end # index
 
   describe "signup page" do
