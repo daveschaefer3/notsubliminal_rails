@@ -112,4 +112,18 @@ describe User do
   describe "admin" do
 
   end # admin?
+
+  describe "blogpost associations" do
+    before { @user.save }
+    let!(:older_blogpost) do
+      FactoryGirl.create(:blogpost, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_blogpost) do
+      FactoryGirl.create(:blogpost, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the blogposts in the right order" do
+      expect(@user.blogposts.to_a).to eq [newer_blogpost, older_blogpost]
+    end
+  end # blogpost associations
 end
