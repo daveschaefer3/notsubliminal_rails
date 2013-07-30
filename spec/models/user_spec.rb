@@ -125,5 +125,7 @@ describe User do
     it "should have the blogposts in the right order" do
       expect(@user.blogposts.to_a).to eq [newer_blogpost, older_blogpost]
     end
+
+    
   end # blogpost associations
 end
