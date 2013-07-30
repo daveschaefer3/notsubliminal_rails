@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 					 uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, length: { minimum: 6 }
+  has_many :blogposts
 
 
   def User.encrypt(token)

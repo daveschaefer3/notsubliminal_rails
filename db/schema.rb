@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130728205440) do
+ActiveRecord::Schema.define(version: 20130730021811) do
+
+  create_table "blogposts", force: true do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blogposts", ["created_at"], name: "index_blogposts_on_created_at"
 
   create_table "users", force: true do |t|
     t.string   "name"
