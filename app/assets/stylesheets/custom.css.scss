@@ -184,3 +184,27 @@ aside {
     }
   }
 }
+
+/* blogposts */
+
+.blogposts, .recentBlogposts {
+  list-style: none;
+  margin: 10px 0 0 0;
+
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+.bp_content {
+  display: block;
+}
+.bp_timestamp {
+  color: $grayLight;
+}
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
