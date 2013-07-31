@@ -96,10 +96,20 @@ describe "UserPages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:bp1) { FactoryGirl.create(:blogpost, user: user, content: "Duck") }
+    let!(:bp2) { FactoryGirl.create(:blogpost, user: user, content: "Goose") }
+
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
     it { should have_title(user.name) }
+
+    describe "recent blogposts" do
+      it { should have_content("Recent Blog Posts") }
+      it { should have_content(bp1.content) }
+      it { should have_content(bp2.content) }
+      it { should have_content(user.blogposts.count) }
+    end
   end # profile page
 
   describe "edit" do

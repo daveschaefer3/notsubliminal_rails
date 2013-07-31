@@ -1,0 +1,9 @@
+<li>
+  _blogposts partial
+  <span class="bp_title"></span>
+  <span class="bp_content"><%= blogpost.content %></span>
+  <span class="bp_timestamp">
+    Posted <%= time_ago_in_words(blogpost.created_at) %> ago.
+  </span>
+  <span class="bp_published"></span>
+</li>

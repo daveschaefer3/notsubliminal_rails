@@ -8,4 +8,13 @@
       </h1>
     </section>
   </aside>
+  <div class="span8">
+    <% if @user.blogposts.any? %>
+      <h3>Recent Blog Posts</h3>
+      <ol class="recentBlogposts">
+        <%= render @recentBlogposts %>
+      </ol>
+      <%= link_to "All User Blog Posts (#{@user.blogposts.count})", '#' %> <!-- user_blogpost_path(@user) -->
+    <% end %>
+  </div>
 </div>
