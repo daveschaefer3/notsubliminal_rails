@@ -1,6 +1,7 @@
 NotsubliminalRails::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :blogposts, only: [:new, :edit, :update, :create, :destroy]
 
   root 'static_pages#home'
   # match '/users',   to: 'users#index',          via: 'get'
@@ -9,6 +10,8 @@ NotsubliminalRails::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/newblogpost', to: 'blogposts#new',    via: 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

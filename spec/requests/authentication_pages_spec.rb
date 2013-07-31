@@ -93,6 +93,28 @@ describe "Authentication" do
           it { should have_title('Sign In') }
         end
       end # in the Users controller
+
+      describe "in the Blogposts controller" do
+        describe "submitting to the new action" do
+          before { get newblogpost_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the create action" do
+          before { post blogposts_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete blogpost_path(FactoryGirl.create(:blogpost)) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the update action" do
+          before { patch blogpost_path(FactoryGirl.create(:blogpost)) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end # in the Blogposts controller
     end #for non-signed-in users
 
     describe "as wrong user" do
