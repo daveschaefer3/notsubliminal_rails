@@ -14,7 +14,8 @@
       <ol class="recentBlogposts">
         <%= render @recentBlogposts %>
       </ol>
-      <%= link_to "All User Blog Posts (#{@user.blogposts.count})", '#' %> <!-- user_blogpost_path(@user) -->
+      <%= link_to "All #{pluralize(@user.blogposts.count, 
+          "blog post")} by #{@user.name}", '#' %> <!-- user_blogpost_path(@user) -->
     <% end %>
   </div>
 </div>

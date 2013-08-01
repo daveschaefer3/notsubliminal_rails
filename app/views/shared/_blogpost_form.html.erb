@@ -1,0 +1,5 @@
+<%= form_for(@blogpost) do |f| %>
+  <%= render 'fields', f: f %>
+
+  <%= f.submit "Create Post", class: "btn btn-large btn-primary" %>
+<% end %>

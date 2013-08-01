@@ -1,2 +1,15 @@
-<h1>Not Subliminal Records</h1>
-<p>Home Page for the upcoming netlabel <strong>Not Subliminal</strong>. Site is currently under construction.</p>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        
+      </section>
+    </aside>
+  </div>
+<% else %>
+  <h1>Not Subliminal Records</h1>
+  <p>Home Page for the upcoming netlabel <strong>Not Subliminal</strong>. Site is currently under construction.</p>
+<% end %>
