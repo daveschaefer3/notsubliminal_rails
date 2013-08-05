@@ -11,6 +11,7 @@ FactoryGirl.define do
   end
   
   factory :blogpost do
+    title "foobar"
     content "Lorem Ipsum"
     user
   end

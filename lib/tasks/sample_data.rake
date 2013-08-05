@@ -18,9 +18,10 @@ namespace :db do
     end # 99.times
 
     users = User.all
-    5.times do
+    5.times do |i|
+      title = "blogpost-#{i+1}"
       content = Faker::Lorem.sentence(5)
-      users.each { |user| user.blogposts.create!(content: content) }
+      users.each { |user| user.blogposts.create!(content: content, title: title) }
     end
   end # task populate: :environment
 end # namespace :db

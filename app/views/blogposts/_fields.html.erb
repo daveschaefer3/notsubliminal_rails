@@ -1,4 +1,7 @@
 <%= render 'shared/error_messages', object: f.object %>
 
+<%= f.label :title %>
+<%= f.text_field :title, placeholder: "Add a title..." %>
+
 <%= f.label :content %>
-<%= f.text_area :content, placeholder: "Compose new blog post..." %>
+<%= f.text_area :content, placeholder: "Add post content..." %>

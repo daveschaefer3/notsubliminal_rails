@@ -23,7 +23,10 @@ describe "Blogpost pages" do
     end # with invalid information
 
     describe "with valid information" do
-      before { fill_in 'blogpost_content', with: "Lorem Ipsum" }
+      before do 
+        fill_in 'blogpost_content', with: "Lorem Ipsum"
+        fill_in 'blogpost_title', with: "Foobar"
+      end
 
       it "should create a blogpost" do
         expect { click_button "Create Post" }.to change(Blogpost, :count).by(1)
