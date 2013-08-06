@@ -30,6 +30,10 @@ class BlogpostsController < ApplicationController
   private
 
     def blogpost_params
-      params.require(:blogpost).permit(:content, :title)
+      params.require(:blogpost).permit(:content, :title, :published)
+    end
+
+    def publish_at
+      # if published changes from false to true then timestamp published_at
     end
 end

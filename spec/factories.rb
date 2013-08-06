@@ -15,4 +15,11 @@ FactoryGirl.define do
     content "Lorem Ipsum"
     user
   end
+
+  factory :publishedBlogpost do
+    title "foobar"
+    content "Lorem Ipsum published"
+    published true
+    user
+  end
 end

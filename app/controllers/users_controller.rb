@@ -8,6 +8,11 @@ class UsersController < ApplicationController
     @recentBlogposts = @user.blogposts.last(3)
   end
 
+  def blogposts
+    @user = User.find(params[:id])
+    @blogposts = @user.blogposts.paginate(page: params[:page])
+  end
+
   def index
     @users = User.paginate(page: params[:page])
   end

@@ -1,5 +1,9 @@
 NotsubliminalRails::Application.routes.draw do
-  resources :users
+  resources :users do
+    collection do
+      get :blogposts
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :blogposts, only: [:new, :edit, :update, :create, :destroy]
 
@@ -12,6 +16,7 @@ NotsubliminalRails::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/newblogpost', to: 'blogposts#new',    via: 'get'
   match '/blog',        to: 'blogposts#index',  via: 'get'
+  get 'users/:id/blogposts', to: 'users#blogposts', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
