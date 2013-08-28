@@ -22,6 +22,7 @@ class BlogpostsController < ApplicationController
   end
 
   def index
+    @blogposts = Blogpost.paginate(page: params[:page])
   end
 
   def destroy
