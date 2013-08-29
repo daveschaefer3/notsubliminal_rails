@@ -15,10 +15,22 @@ class BlogpostsController < ApplicationController
     end
   end
 
+  def show
+    @blogpost = Blogpost.find(params[:id])
+  end
+
   def edit
+    @blogpost = Blogpost.find(params[:id])
   end
 
   def update
+    @blogpost = Blogpost.find(params[:id])
+    if @blogpost.update_attributes(blogpost_params)
+      flash[:success] = "Post updated."
+      redirect_to @blogpost
+    else
+      render 'edit'
+    end
   end
 
   def index

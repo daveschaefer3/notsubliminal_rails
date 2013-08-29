@@ -5,7 +5,7 @@ NotsubliminalRails::Application.routes.draw do
     end
   end
   resources :sessions, only: [:new, :create, :destroy]
-  resources :blogposts, only: [:new, :edit, :update, :create, :destroy]
+  resources :blogposts, only: [:new, :show, :edit, :update, :create, :destroy]
 
   root 'static_pages#home'
   # match '/users',   to: 'users#index',          via: 'get'
