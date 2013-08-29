@@ -38,6 +38,9 @@ class BlogpostsController < ApplicationController
   end
 
   def destroy
+    Blogpost.find(params[:id]).destroy
+    flash[:success] = "Blogpost deleted."
+    redirect_to blog_path
   end
 
   private

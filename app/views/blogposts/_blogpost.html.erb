@@ -1,5 +1,10 @@
 <li>
-  <span class="bp_title"><%= link_to blogpost.title, blogpost %></span> <br />
+  <span class="bp_title"><%= link_to blogpost.title, blogpost %></span>
+  <span class="bp_edit">
+    <% if current_user?(blogpost.user) %>
+       | <%= link_to "Edit", edit_blogpost_path(blogpost) %> 
+    <% end %>
+  </span> <br />
   <span class="bp_content"><%= blogpost.content %></span>
   <span class="bp_timestamp">
     Posted <%= time_ago_in_words(blogpost.created_at) %> ago<% unless blogpost.user.nil? %> by <%= link_to blogpost.user.name, blogpost.user %>

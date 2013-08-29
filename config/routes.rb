@@ -14,6 +14,7 @@ NotsubliminalRails::Application.routes.draw do
   match '/signout', to: 'sessions#destroy',     via: 'delete'
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/music',   to: 'static_pages#music',   via: 'get'
   match '/newblogpost', to: 'blogposts#new',    via: 'get'
   match '/blog',        to: 'blogposts#index',  via: 'get'
   get 'users/:id/blogposts', to: 'users#blogposts', via: 'get'

@@ -8,5 +8,10 @@
 
       <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
     <% end %>
+    <% if current_user.admin? || current_user?(@blogpost.user) %>
+    <%= link_to "Delete Post", @blogpost, method: :delete,
+        data: { confirm: "Are you sure?" },
+        class: "btn btn-large btn-danger" %>
+  <% end %>
   </div>
 </div>
