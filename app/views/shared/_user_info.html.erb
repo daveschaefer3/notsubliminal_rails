@@ -2,8 +2,15 @@
   <%= current_user.name %>
 </h1>
 <span>
-  <%= link_to "view my profile", current_user %>
+  <%= link_to "View Profile", current_user %>
+</span>
+<br />
+<span>
+  <%= link_to "Create New Blog Post", newblogpost_path %>
 </span>
 <span>
-  <%= link_to "New Blog Post", newblogpost_path %>
+  <%= link_to "Add An Artist", newartist_path %>
+</span>
+<span>
+  <%= link_to "Add A Release", newrelease_path %>
 </span>

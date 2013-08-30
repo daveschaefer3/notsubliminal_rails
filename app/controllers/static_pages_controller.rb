@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @blogpost = current_user.blogposts.build if signed_in?
+    @recentBlogposts = current_user.blogposts.first(3) if signed_in?
   end
 
   def about

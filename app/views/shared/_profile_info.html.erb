@@ -1,0 +1,8 @@
+<% if user.blogposts.any? %>
+  <h3>Recent Blog Posts</h3>
+  <ol class="recentBlogposts">
+   <%= render @recentBlogposts %>
+  </ol>
+  <%= link_to "All #{pluralize(user.blogposts.count, 
+      "blog post")} by #{user.name}", "#{user.id}/blogposts" %>
+<% end %>

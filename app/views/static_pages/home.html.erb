@@ -4,10 +4,12 @@
       <section>
         <%= render 'shared/user_info' %>
       </section>
-      <section>
-        
-      </section>
     </aside>
+    <div class="span8">
+      <section>
+        <%= render 'shared/profile_info', user: current_user %>
+      </section>
+    </div>
   </div>
 <% else %>
   <h1>Not Subliminal Records</h1>

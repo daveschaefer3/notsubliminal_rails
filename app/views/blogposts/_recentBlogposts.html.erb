@@ -1,8 +1,8 @@
 <li>
   <span class="title"><%= blogpost.title %></span>
   <span class="bp_edit">
-    <% if current_user?(@blogpost.user) %>
-       | <%= link_to "Edit", edit_blogpost_path(@blogpost) %> 
+    <% if current_user?(blogpost.user) %>
+       | <%= link_to "Edit", edit_blogpost_path(blogpost) %> 
     <% end %>
   </span> <br />
   <span class="content"><%= blogpost.content %></span>

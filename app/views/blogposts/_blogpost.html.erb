@@ -7,7 +7,9 @@
   </span> <br />
   <span class="bp_content"><%= blogpost.content %></span>
   <span class="bp_timestamp">
-    Posted <%= time_ago_in_words(blogpost.created_at) %> ago<% unless blogpost.user.nil? %> by <%= link_to blogpost.user.name, blogpost.user %>
+    Posted <%= time_ago_in_words(blogpost.created_at) %> ago
+    <% unless blogpost.user.nil? %>
+       by <%= link_to blogpost.user.name, blogpost.user %>
     <% end %>.
   </span>
   <span class="bp_published"></span>
