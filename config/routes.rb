@@ -1,4 +1,5 @@
 NotsubliminalRails::Application.routes.draw do
+  get "songs/new"
   get "albums/new"
   get "artists/new"
   resources :users do
