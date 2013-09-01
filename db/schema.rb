@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130801210358) do
+ActiveRecord::Schema.define(version: 20130831234756) do
+
+  create_table "artists", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "email"
+    t.string   "extlink"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "blogposts", force: true do |t|
     t.text     "content"

@@ -1,4 +1,5 @@
 NotsubliminalRails::Application.routes.draw do
+  get "artists/new"
   resources :users do
     collection do
       get :blogposts
