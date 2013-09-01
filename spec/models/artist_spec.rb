@@ -19,6 +19,11 @@ describe Artist do
     it { should_not be_valid }
   end
 
+  describe "when name is too long" do
+    before { @artist.name = "a" * 81 }
+    it { should_not be_valid }
+  end
+
   describe "when email is not present" do
     before { @artist.email = " " }
     it { should_not be_valid }
