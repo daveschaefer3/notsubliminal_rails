@@ -9,4 +9,14 @@ describe Album do
 
   it { should respond_to(:name) }
   it { should respond_to(:description) }
+
+  describe "when name is not present" do
+    before { @album.name = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when the name is too long" do
+    before { @album.name = "a" * 101 }
+    it { should_not be_valid }
+  end
 end
