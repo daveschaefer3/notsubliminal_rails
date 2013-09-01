@@ -21,7 +21,8 @@ NotsubliminalRails::Application.routes.draw do
   match '/newblogpost', to: 'blogposts#new',    via: 'get'
   match '/blog',        to: 'blogposts#index',  via: 'get'
   match '/newartist',   to: 'artists#new',      via: 'get'
-  match '/newalbum',    to: 'albums#new',   via: 'get'
+  match '/newalbum',    to: 'albums#new',       via: 'get'
+  match '/newsong',     to: 'songs#new',        via: 'get'
   get 'users/:id/blogposts', to: 'users#blogposts', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
