@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130901024044) do
+ActiveRecord::Schema.define(version: 20130901033249) do
 
   create_table "albums", force: true do |t|
     t.string   "name"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20130901024044) do
   end
 
   add_index "blogposts", ["created_at"], name: "index_blogposts_on_created_at"
+
+  create_table "songs", force: true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
