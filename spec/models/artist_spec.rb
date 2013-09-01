@@ -13,4 +13,14 @@ describe Artist do
   it { should respond_to(:description) }
   it { should respond_to(:email) }
   it { should respond_to(:extlink) }
+
+  describe "when name is not present" do
+    before { @artist.name = " " }
+    it { should_not be_valid }
+  end
+
+  describe "when email is not present" do
+    before { @artist.email = " " }
+    it { should_not be_valid }
+  end
 end
