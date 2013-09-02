@@ -13,6 +13,8 @@ describe Artist do
   it { should respond_to(:description) }
   it { should respond_to(:email) }
   it { should respond_to(:extlink) }
+  it { should respond_to(:albums) }
+  it { should respond_to(:songs) }
 
   describe "when name is not present" do
     before { @artist.name = " " }
