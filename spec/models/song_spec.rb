@@ -9,6 +9,7 @@ describe Song do
 
   it { should respond_to(:title) }
   it { should respond_to(:user_id) }
+  it { should respond_to(:songArtistRelationships) }
 
   describe "when title is not present" do
     before { @song.title = " " }
