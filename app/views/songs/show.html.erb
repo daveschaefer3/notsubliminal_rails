@@ -1,0 +1,10 @@
+<% provide(:title, @song.title) %>
+<div class="row">
+  <span class="song_title"><%= link_to @song.title, @song %></span>
+  <span class="song_edit">
+       | <%= link_to "Edit", edit_song_path(@song) %>
+  </span> <br />
+  <span class="art_timestamp">
+    Posted <%= time_ago_in_words(@song.created_at) %> ago.
+  </span>
+</div>

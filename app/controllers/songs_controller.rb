@@ -5,6 +5,13 @@ class SongsController < ApplicationController
   end
 
   def create
+    @song = Song.new(song_params)
+    if @song.save
+      flash[:success] = "Song added!"
+      redirect_to root_url
+    else
+      render 'songs/new'
+    end
   end
 
   def show
@@ -20,6 +27,7 @@ class SongsController < ApplicationController
   end
 
   def index
+    @songs = Song.paginate(page: params[:page])
   end
 
   def destroy
