@@ -1,0 +1,10 @@
+<li>
+  <span class="alb_name"><%= link_to album.name, album %></span>
+  <span class="alb_edit">
+       | <%= link_to "Edit", edit_album_path(album) %>
+  </span> <br />
+  <span class="alb_description"><%= album.description %></span> <br />
+  <span class="alb_timestamp">
+    Posted <%= time_ago_in_words(album.created_at) %> ago.
+  </span>
+</li>

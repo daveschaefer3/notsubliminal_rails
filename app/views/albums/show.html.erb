@@ -1,0 +1,11 @@
+<% provide(:title, @album.name) %>
+<div class="row">
+  <span class="art_name"><%= link_to @album.name, @album %></span>
+  <span class="art_edit">
+       | <%= link_to "Edit", edit_album_path(@album) %>
+  </span> <br />
+  <span class="art_description"><%= @album.description %></span> <br />
+  <span class="art_timestamp">
+    Posted <%= time_ago_in_words(@album.created_at) %> ago.
+  </span>
+</div>

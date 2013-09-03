@@ -1,0 +1,17 @@
+<% provide(:title, 'Edit Album') %>
+<h1>Edit Album</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@album) do |f| %>
+      <%= render 'fields', f: f %>
+
+      <%= f.submit "Save Changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+    <% if current_user.admin? %>
+    <%= link_to "Delete Artist", @album, method: :delete,
+        data: { confirm: "Are you sure?" },
+        class: "btn btn-large btn-danger" %>
+  <% end %>
+  </div>
+</div>
