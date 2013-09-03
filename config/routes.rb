@@ -1,7 +1,4 @@
 NotsubliminalRails::Application.routes.draw do
-  get "songs/new"
-  get "albums/new"
-  get "artists/new"
   resources :users do
     collection do
       get :blogposts
@@ -9,6 +6,9 @@ NotsubliminalRails::Application.routes.draw do
   end
   resources :sessions, only: [:new, :create, :destroy]
   resources :blogposts, only: [:new, :show, :edit, :update, :create, :destroy]
+  resources :songs, only: [:new, :show, :edit, :update, :create, :destroy]
+  resources :albums, only: [:new, :show, :edit, :update, :create, :destroy]
+  resources :artists, only: [:new, :show, :edit, :update, :create, :destroy]
 
   root 'static_pages#home'
   # match '/users',   to: 'users#index',          via: 'get'
@@ -20,9 +20,6 @@ NotsubliminalRails::Application.routes.draw do
   match '/music',   to: 'static_pages#music',   via: 'get'
   match '/newblogpost', to: 'blogposts#new',    via: 'get'
   match '/blog',        to: 'blogposts#index',  via: 'get'
-  match '/newartist',   to: 'artists#new',      via: 'get'
-  match '/newalbum',    to: 'albums#new',       via: 'get'
-  match '/newsong',     to: 'songs#new',        via: 'get'
   get 'users/:id/blogposts', to: 'users#blogposts', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
