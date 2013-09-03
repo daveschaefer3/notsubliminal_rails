@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130902223729) do
+ActiveRecord::Schema.define(version: 20130903001426) do
 
   create_table "album_artist_relationships", force: true do |t|
     t.integer  "album_id"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(version: 20130902223729) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "album_artist_relationships", ["album_id", "artist_id"], name: "index_album_artist_relationships_on_album_id_and_artist_id"
+  add_index "album_artist_relationships", ["album_id"], name: "index_album_artist_relationships_on_album_id"
+  add_index "album_artist_relationships", ["artist_id"], name: "index_album_artist_relationships_on_artist_id"
+
+  create_table "album_song_relationships", force: true do |t|
+    t.integer  "album_id"
+    t.integer  "song_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "album_song_relationships", ["album_id", "song_id"], name: "index_album_song_relationships_on_album_id_and_song_id", unique: true
+  add_index "album_song_relationships", ["album_id"], name: "index_album_song_relationships_on_album_id"
+  add_index "album_song_relationships", ["song_id"], name: "index_album_song_relationships_on_song_id"
 
   create_table "albums", force: true do |t|
     t.string   "name"
