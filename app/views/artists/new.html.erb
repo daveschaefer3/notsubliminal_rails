@@ -2,6 +2,10 @@
 <h1>Add an Artist</h1>
 <div class="row">
   <div class="span6 offset3">
-    
+    <%= form_for(@artist) do |f| %>
+      <%= render 'fields', f: f %>
+
+      <%= f.submit "Add Artist", class: "btn btn-large btn-primary" %>
+    <% end %>
   </div>
 </div>

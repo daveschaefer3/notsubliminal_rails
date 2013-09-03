@@ -1,0 +1,13 @@
+<%= render 'shared/error_messages', object: f.object %>
+
+<%= f.label :name %>
+<%= f.text_field :name, placeholder: "Artist Name..." %>
+
+<%= f.label :description %>
+<%= f.text_area :description, placeholder: "Artist description..." %>
+
+<%= f.label :email %>
+<%= f.text_field :email, placeholder: "E-mail..." %>
+
+<%= f.label :extlink %>
+<%= f.text_field :extlink, placeholder: "External link..." %>

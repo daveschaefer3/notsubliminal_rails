@@ -1,0 +1,13 @@
+<% provide(:title, @artist.name) %>
+<div class="row">
+  <span class="art_name"><%= link_to @artist.name, @artist %></span>
+  <span class="art_edit">
+       | <%= link_to "Edit", edit_artist_path(@artist) %>
+  </span> <br />
+  <span class="art_description"><%= @artist.description %></span> <br />
+  <span class="art_email"><%= @artist.email %></span> <br />
+  <span class="art_extlink"><%= @artist.extlink %></span> <br />
+  <span class="art_timestamp">
+    Posted <%= time_ago_in_words(@artist.created_at) %> ago.
+  </span>
+</div>
