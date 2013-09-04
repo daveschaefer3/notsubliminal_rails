@@ -71,11 +71,52 @@ describe "Album Pages" do
     end # pagination
   end # index page
 
-  describe "edit album page" do
+  describe "show album page" do
+    let(:album) { FactoryGirl.create(:album) }
+
+    before { visit album_path(album) }
+
+    it { should have_content(album.name) }
+    it { should have_title(full_title(album.name)) }
+  end # show album page
+
+  describe "edit" do
+    let(:album) { FactoryGirl.create(:album) }
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in user
+      visit edit_album_path(album)
+    end
+
+    describe "page" do
+      it { should have_content("Edit Album") }
+      it { should have_title(full_title('Edit Album')) }
+    end
+
+    describe "with invalid information" do
+      before do
+        fill_in "Name",   with: " "
+        click_button "Save Changes"
+      end
+
+      it { should have_content('error') }
+    end # with invalid information
+
+    describe "with valid information" do
+      let(:new_name) { "New Name" }
+      let(:new_description) { "New description" }
+      before do
+        fill_in "Name",         with: new_name
+        fill_in "Description",  with: new_description
+        click_button "Save Changes"
+      end
+
+      it { should have_title(full_title(new_name)) }
+      it { should have_selector('div.alert.alert-success') }
+      it { should have_link('Sign Out', href: signout_path) }
+      specify { expect(album.reload.name).to eq new_name }
+      specify { expect(album.reload.description).to eq new_description }
+    end # with valid information
 
   end # edit album page
-
-  describe "show album page" do
-
-  end # show album page
 end

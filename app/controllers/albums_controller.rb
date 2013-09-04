@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+  before_action :signed_in_user, only: [:edit, :update, :destroy]
+  before_action :admin_user,     only: :destroy
 
   def new
     @album = Album.new
@@ -23,6 +25,13 @@ class AlbumsController < ApplicationController
   end
 
   def update
+    @album = Album.find(params[:id])
+    if @album.update_attributes(album_params)
+      flash[:success] = "Album updated!"
+      redirect_to @album
+    else
+      render 'edit'
+    end
   end
 
   def index
