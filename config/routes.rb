@@ -1,4 +1,10 @@
 NotsubliminalRails::Application.routes.draw do
+  get "song_artist_relationships/create"
+  get "song_artist_relationships/destroy"
+  get "album_song_relationships/create"
+  get "album_song_relationships/destroy"
+  get "album_artist_relationships/create"
+  get "album_artist_relationships/destroy"
   resources :users do
     collection do
       get :blogposts
@@ -9,6 +15,9 @@ NotsubliminalRails::Application.routes.draw do
   resources :songs, only: [:new, :show, :edit, :update, :create, :destroy]
   resources :albums, only: [:new, :show, :edit, :update, :create, :destroy]
   resources :artists, only: [:new, :show, :edit, :update, :create, :destroy]
+  resources :song_artist_relationships, only: [:new, :create, :destroy]
+  resources :album_artist_relationships, only: [:new, :create, :destroy]
+  resources :album_song_relationships, only: [:new, :create, :destroy]
 
   root 'static_pages#home'
   # match '/users',   to: 'users#index',          via: 'get'
